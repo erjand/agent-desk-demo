@@ -1,0 +1,9 @@
+{
+  "title": "agent-desk demo",
+  "host": "github",
+  "test": "python3 -m unittest",
+  "testMinutes": 5,
+  "worktree": { "seeds": [], "setup": "" },
+  "sync": { "run": "", "skipWhile": [] },
+  "chores": { "every": {}, "gapHours": 18, "maxAuditIssues": 5 }
+}
