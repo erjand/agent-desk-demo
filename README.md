@@ -7,7 +7,7 @@ repository to try agent-desk on a project with nothing at stake.
 The project itself is `tinytext`, a few small functions for everyday text:
 
 ```python
->>> from tinytext import title_case, word_count, reverse_words, strip_accents
+>>> from tinytext import title_case, word_count, reverse_words, strip_accents, slugify
 >>> title_case("the quick brown fox")
 'The Quick Brown Fox'
 >>> word_count("one two three")
@@ -16,6 +16,8 @@ The project itself is `tinytext`, a few small functions for everyday text:
 'three two one'
 >>> strip_accents("café crème")
 'cafe creme'
+>>> slugify("Café crème, Hello World!")
+'cafe-creme-hello-world'
 ```
 
 ## Test
