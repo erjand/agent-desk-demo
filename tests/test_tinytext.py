@@ -21,6 +21,12 @@ class WordCountTest(unittest.TestCase):
     def test_empty_text_has_no_words(self):
         self.assertEqual(word_count(""), 0)
 
+    def test_counts_hyphenated_word_once(self):
+        self.assertEqual(word_count("a well-known fact"), 3)
+
+    def test_spaced_hyphen_is_no_word(self):
+        self.assertEqual(word_count("one - two"), 2)
+
 
 class ReverseWordsTest(unittest.TestCase):
     def test_reverses_word_order(self):

@@ -12,8 +12,12 @@ def title_case(text):
 
 
 def word_count(text):
-    """Count the words in text, where a word is a run of letters, digits, or apostrophes."""
-    return len(re.findall(r"[\w']+", text))
+    """Count the words in text.
+
+    A word is a run of letters, digits, or apostrophes. Hyphens join runs into one word, so
+    "well-known" counts once, while a hyphen with spaces around it counts as no word.
+    """
+    return len(re.findall(r"[\w']+(?:-[\w']+)*", text))
 
 
 def reverse_words(text):
