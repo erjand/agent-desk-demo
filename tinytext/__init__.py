@@ -3,7 +3,7 @@
 import re
 import unicodedata
 
-__all__ = ["reverse_words", "strip_accents", "title_case", "word_count"]
+__all__ = ["reverse_words", "slugify", "strip_accents", "title_case", "word_count"]
 
 
 def title_case(text):
@@ -25,3 +25,14 @@ def strip_accents(text):
     """Remove accents from letters, so that "café" becomes "cafe"."""
     decomposed = unicodedata.normalize("NFKD", text)
     return "".join(char for char in decomposed if not unicodedata.combining(char))
+
+
+def slugify(text):
+    """Turn text into a URL slug, so that "Hello, World!" becomes "hello-world".
+
+    Accented letters lose their accents. Each run of characters other than ASCII letters and
+    digits becomes one hyphen, so letters outside the Latin script drop out, and the slug
+    never starts or ends with a hyphen.
+    """
+    ascii_text = strip_accents(text.casefold())
+    return re.sub(r"[^a-z0-9]+", "-", ascii_text).strip("-")
