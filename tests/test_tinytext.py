@@ -15,6 +15,9 @@ class WordCountTest(unittest.TestCase):
     def test_counts_words(self):
         self.assertEqual(word_count("one two three"), 3)
 
+    def test_counts_a_non_breaking_hyphen_as_a_hyphen(self):
+        self.assertEqual(word_count("a well‑known fact"), 3)
+
     def test_ignores_punctuation_and_extra_spaces(self):
         self.assertEqual(word_count("  Hello,   world!  "), 2)
 
