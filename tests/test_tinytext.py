@@ -10,6 +10,12 @@ class TitleCaseTest(unittest.TestCase):
     def test_lowers_the_rest_of_each_word(self):
         self.assertEqual(title_case("hELLO wORLD"), "Hello World")
 
+    def test_keeps_contractions_lowercase_after_the_apostrophe(self):
+        self.assertEqual(title_case("don't stop"), "Don't Stop")
+
+    def test_keeps_possessives_lowercase_after_the_apostrophe(self):
+        self.assertEqual(title_case("the cat's toy"), "The Cat's Toy")
+
 
 class WordCountTest(unittest.TestCase):
     def test_counts_words(self):

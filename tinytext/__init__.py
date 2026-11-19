@@ -6,9 +6,12 @@ import unicodedata
 __all__ = ["reverse_words", "strip_accents", "title_case", "word_count"]
 
 
+_WORD = re.compile(r"[^\W\d_]+(?:'[^\W\d_]+)*")
+
+
 def title_case(text):
-    """Capitalize the first letter of each word."""
-    return text.title()
+    """Capitalize the first letter of each word, where an apostrophe between letters stays inside the word."""
+    return _WORD.sub(lambda match: match.group().capitalize(), text)
 
 
 def word_count(text):
